@@ -2,6 +2,10 @@
   display: none;
 }
 
+#reveal {
+  display: none;
+}
+
 .form-group input {
   margin: 7.5px;
 

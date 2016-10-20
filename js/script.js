@@ -51,8 +51,9 @@ var answer = function () {
 $(document).ready(function() {
   $("form#fortunes").submit(function(event) {
     event.preventDefault();
-
-    $("#fortune_teller").fadeIn();
+    $("#fortune_teller").empty();
+    $("#reveal").fadeIn(5000);
+    $("#fortune_teller").show();
 
     $("input:checkbox[name=fortune_cookie]:checked").each(function(){
       var cookie = $(this).val();
