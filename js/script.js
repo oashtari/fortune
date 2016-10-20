@@ -4,6 +4,11 @@ var cookie_responses = [];
 var omen_responses = [];
 var guilty_responses = [];
 
+var results;
+var trump = "Trump is president, and now we're all fucked.";
+var hillary = "Ms. Rodham wins...we're all stagnant for four more years."
+var fucked = "Well, you have shitty luck, don't worry about the US president."
+
 var answer = function () {
   if (cookie_responses.length >= 2) {
     alert("don't be greedy, just pick one.");
@@ -11,8 +16,29 @@ var answer = function () {
     alert("come on now, you know you have more guilty pleasures...");
   } else if (omen_responses.length >= 3) {
     alert("you're NOT a lucky person...and get lost, ahhhhhh, we're scared");
-  } else if (guilty_responses.includes("katy", "mcd")) {
-    alert("does she melt your popsicle?");
+  } else if ((guilty_responses.includes("katy")) ||
+              (guilty_responses.includes("mcd")) || (guilty_responses.includes("weed"))) {
+
+    if ((cookie_responses.includes("family")) || (cookie_responses.includes("matrix")) ) {
+      if ((omen_responses.includes("milk")) || (omen_responses.includes("dino"))) {
+      return results = trump;
+      } else {
+        alert("you have no future, TRY AGAIN!!")
+      }
+    } else if ((cookie_responses.includes("lottery")) ||
+               (cookie_responses.includes("trip")) ||
+               (cookie_responses.includes("space"))) {
+
+      if (omen_responses.includes("none")) {
+        return results = fucked;
+      } else if ((omen_responses.includes("cat")) || (omen_responses.includes("ladder"))) {
+        return results = hillary;
+      } else {
+        alert("you have no future, TRY AGAIN!!")
+      }
+    } else {
+      alert("you have no future, TRY AGAIN!!")
+    }
   }
 };
 
@@ -44,6 +70,8 @@ $(document).ready(function() {
     });
 
     answer();
+
+    $("#fortune_teller").append(results);
 
     cookie_responses = [];
     omen_responses = [];
